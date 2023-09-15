@@ -16,15 +16,16 @@ body {
 }
 
 .cards {
-    width : 40%;
+    width : auto;
     height : auto;
     min-height : 20rem;
     min-width : 25rem;
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
+    display: grid;
+    grid-template-columns: repeat(4,7rem);
+    grid-template-rows: repeat(4,7rem);
+    justify-items: center;
+    align-items: center;
 }
 
 .card {

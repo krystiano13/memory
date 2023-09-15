@@ -10,14 +10,48 @@ export function Page() {
   const [guesses, setGuesses] = useState<number>(0);
   const [matches, setMatches] = useState<number>(0);
   const [cardsRevealed, setCardsRevealed] = useState<number>(0);
+  const [match, setMatch] = useState([]);
+
+  const checkCards = () => {
+    if (cardsRevealed < 1) return;
+
+    const card1 = cards[match[0]];
+    const card2 = cards[match[1]];
+    const cardsArray = cards;
+
+    console.log(card1);
+    console.log(card2);
+
+    setTimeout(() => {
+      if (card1.colorName === card2.colorName) {
+        cardsArray[card1.id].matched = true;
+        cardsArray[card2.id].matched = true;
+        setMatches((prev) => prev + 1);
+        setPercentage(Math.floor(matches / 8) * 100);
+      } else {
+        cardsArray[card1.id].revealed = false;
+        cardsArray[card2.id].revealed = false;
+      }
+
+      setMatch([]);
+      setCards(cardsArray);
+      setCardsRevealed(0);
+      setGuesses((prev) => prev + 1);
+    }, 600);
+  };
 
   const revealCard = (e) => {
     const cardsArray = cards;
+    const matchesArray = match;
+
     if (cardsRevealed >= 2) return;
     if (e.target.className !== "card") return;
 
     setCardsRevealed((prev) => prev + 1);
     cardsArray[Number(e.target.id)].revealed = true;
+    matchesArray.push(Number(e.target.id));
+
+    checkCards();
   };
 
   const renderCards = () => {
@@ -72,7 +106,7 @@ export function Page() {
             class={
               item.matched || item.revealed ? `card ${item.colorName}` : `card`
             }
-			onClick={(e) => revealCard(e)}
+            onClick={(e) => revealCard(e)}
           ></div>
         ))}
       </div>
