@@ -31,8 +31,14 @@ export function Page() {
           <div key={item.id} class="card"></div>
         ))}
       </div>
-      <div class="info"></div>
-      <div class="buttons"></div>
+      <div class="info">
+        <p>Guesses: 0</p>
+        <p>Matches: 0</p>
+        <p>Percentage: 0%</p>
+      </div>
+      <div class="buttons">
+        <button>Restart</button>
+      </div>
     </div>
   );
 }
