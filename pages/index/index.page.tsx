@@ -28,7 +28,7 @@ export function Page() {
     <div class="wrapper">
       <div class="cards">
         {cards.map((item) => (
-          <p>{item.id}</p>
+          <div key={item.id} class="card"></div>
         ))}
       </div>
       <div class="info"></div>

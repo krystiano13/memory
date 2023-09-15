@@ -8,4 +8,28 @@ body {
     width : 100vw;
     height : 100vh;
     overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards {
+    width : 40%;
+    height : 50%;
+    min-height : 20rem;
+    min-width : 25rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.card {
+    width : 5rem;
+    height: 5rem;
+    background-color: cornflowerblue;
+    margin : 1rem;
 }
