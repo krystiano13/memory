@@ -1,7 +1,14 @@
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    src: url('../assets/Montserrat-Medium.woff2') format('woff2');
+}
+
 body {
     margin : 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat';
 }
 
 .wrapper {
@@ -34,6 +41,11 @@ body {
     background-color: cornflowerblue;
     margin : 1rem;
     cursor: pointer;
+
+    transition : background-color 250ms;
+    will-change: background-color;
+
+    animation : appear 250ms;
 }
 
 .info {
@@ -44,6 +56,7 @@ body {
     display : flex;
     justify-content: space-evenly;
     align-items: center;
+
 }
 
 .buttons {
@@ -54,3 +67,20 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.buttons button {
+    font-family: 'Montserrat';
+}
+
+@keyframes appear {
+    from {
+        opacity : 0;
+        transform: translateY(250px);
+    }
+
+    to {
+        opacity : 1;
+        transform: translateY(0px);
+    }
+}
+
