@@ -12,6 +12,10 @@ export function Page() {
   const [cardsRevealed, setCardsRevealed] = useState<number>(0);
   const [match, setMatch] = useState([]);
 
+  const restart = () => {
+    window.location.href = '/';
+  }
+
   const checkCards = () => {
     if (cardsRevealed < 1) return;
 
@@ -116,7 +120,7 @@ export function Page() {
         <p>Percentage: {percentage}%</p>
       </div>
       <div class="buttons">
-        <button>Restart</button>
+        <button onClick={restart}>Restart</button>
       </div>
     </div>
   );
