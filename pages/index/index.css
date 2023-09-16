@@ -70,6 +70,28 @@ body {
 
 .buttons button {
     font-family: 'Montserrat';
+    background-color: cornflowerblue;
+    color : white;
+    border: none;
+    padding : 1.25rem;
+    padding-left : 3.5rem;
+    padding-right : 3.5rem;
+    font-size : 1.25rem;
+    border-radius: 1rem;
+    cursor: pointer;
+
+    border-bottom : solid rgb(60, 102, 179) 0.3rem;
+
+    transition: background-color 250ms;
+    will-change: background-color;
+}
+
+.buttons button:hover {
+    background-color: rgb(81, 132, 226);
+}
+
+.buttons button:active {
+    border : none;
 }
 
 @keyframes appear {
