@@ -31,7 +31,7 @@ export function Page() {
         cardsArray[card1.id].matched = true;
         cardsArray[card2.id].matched = true;
         setMatches((prev) => prev + 1);
-        setPercentage(Math.floor(matches / 8) * 100);
+        setPercentage(prev => Math.round(prev + 12.5));
       } else {
         cardsArray[card1.id].revealed = false;
         cardsArray[card2.id].revealed = false;
