@@ -13,8 +13,8 @@ export function Page() {
   const [match, setMatch] = useState([]);
 
   const restart = () => {
-    window.location.href = '/';
-  }
+    window.location.href = "/";
+  };
 
   const checkCards = () => {
     if (cardsRevealed < 1) return;
@@ -31,7 +31,11 @@ export function Page() {
         cardsArray[card1.id].matched = true;
         cardsArray[card2.id].matched = true;
         setMatches((prev) => prev + 1);
-        setPercentage(prev => Math.round(prev + 12.5));
+        setPercentage((prev) => prev + 12.5);
+
+        if (percentage > 100) {
+          setPercentage(100);
+        }
       } else {
         cardsArray[card1.id].revealed = false;
         cardsArray[card2.id].revealed = false;
